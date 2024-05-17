@@ -1,7 +1,7 @@
 .logo {
     /* display: flex; */
     height: 27px;
-    min-width: 92px;
+    width: 92px;
 }
 
 .logoImg {
