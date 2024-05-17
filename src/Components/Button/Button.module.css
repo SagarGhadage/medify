@@ -1,11 +1,12 @@
 button {
     background-color: transparent;
-    height: inherit;
-    width: auto;
+    height: 100%;
+    width: inherit;
     min-width:fit-content;
     border-radius: 8px;
     border: none;
     padding: 5%;
+    cursor: pointer;
 }
 
 .BLACK {
@@ -15,7 +16,12 @@ button {
 }
 
 .LIGHTBLUE {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background:#2AA8FF;
+    gap: 6px;
+    height: inherit;
     padding: 0.81% 3%;
     color: white;
 }
