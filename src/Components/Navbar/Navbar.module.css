@@ -5,5 +5,43 @@
     width: 100%;
     min-height: 96px;
     padding: 0 9.456%;
-    border: 0.5px solid #FFFFFF
+    background-color: white;
+    /* border: 0.5px solid #FFFFFF */
+}
+
+.transperent {
+    background: transparent !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 96px;
+    padding: 0 9.456%;
+    /* background-color: white; */
+}
+
+.navlist {
+    display: flex;
+    min-width: 76%;
+    font-family: Poppins;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    width: fit-content;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navlist .span {
+    cursor: pointer;
+}
+
+.span:active {
+    color: #0095ff;
+}
+
+.span:hover {
+    color: #2aa7ff;
+    font-size: 18px;
 }
