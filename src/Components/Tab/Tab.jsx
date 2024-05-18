@@ -64,13 +64,13 @@ export default function FullWidthTabs({ data=[],Component }) {
           // aria-label="scrollable auto tabs example"
         >
           {data.slots?.map((day,idx)=>
-          <Tab label={<TabData tabData={{ day: day.day, slots: `${day.slots} Slots Available` }}></TabData>} {...a11yProps(idx)}>hi</Tab>)
+          <Tab key={idx} label={<TabData tabData={{ day: day.day, slots: `${day.slots} Slots Available` }}></TabData>} {...a11yProps(idx)}></Tab>)
           }
         </Tabs>
       </AppBar>
       {data.slots?.map((day,idx)=>
-      <TabPanel value={value} index={idx} >
-        {Component(day)}
+      <TabPanel value={value} key={day?.date} index={idx} >
+        {Component(day,data)}
       </TabPanel>
       )}
       
