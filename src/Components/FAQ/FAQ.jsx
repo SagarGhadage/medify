@@ -10,7 +10,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 export default function FAQ({data }) {
   const [expanded, setExpanded] = React.useState("");
-  console.log(expanded)
+  console.log(expanded,data)
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
@@ -33,7 +33,7 @@ export default function FAQ({data }) {
           </div>
         </div>
         <div className={style.flexFAQContainer}>
-          {data.map((faq, idx) =>
+          {data?.map((faq, idx) =>
             <Accordion key={idx} className={style.accordian} expanded={expanded === `panel${idx + 1}`} onChange={handleChange(`panel${idx + 1}`)}>
               <AccordionSummary className={style.accordionSummary} sx={{ backgroundColor: "var(--color-black)" }}
                 expandIcon={<span className={style.expandIcon}>+</span>}
