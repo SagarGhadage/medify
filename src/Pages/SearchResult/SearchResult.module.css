@@ -12,6 +12,7 @@
     border-radius: 0 0 16px 16px;
     position: relative;
     top: -6px;
+    z-index: 1;
     padding: 0 9%;
 }
 
@@ -37,7 +38,10 @@
 }
 
 .cards {
+    display: flex;
+    flex-direction: column;
     margin-top: 5%;
+    gap: 20px;
     width: 786px;
     height: auto;
 }
