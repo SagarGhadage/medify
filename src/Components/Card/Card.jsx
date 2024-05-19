@@ -1,11 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "./Card.module.css"
 import Button, { btnVarient } from '../Button/Button'
 import Icon, { IconName } from '../Icon/Icons'
 import Carousal from '../Carousal/Carousal'
 import FullWidthTabs from '../Tab/Tab'
+// import { Form } from 'react-router-dom'
+import Modals from '../Modal/Modal'
+import Form, { Formtype } from '../Form/Form'
+import { getMonthFromNo } from '../../data/data'
 function Card({ data, heading, handleClick, cardtype, children, ImgIcon, }) {
-  console.log(heading)
+
+  const [BookingData, setBookingData] = useState({})
+  const [expand, setExpand] = useState(false)
+  // console.log(expand)
   switch (cardtype) {
 
     case cardType.VerticalBox:
@@ -76,10 +83,17 @@ function Card({ data, heading, handleClick, cardtype, children, ImgIcon, }) {
 
     case cardType.Hospital:
       console.log(data)
+      let date=''
+      if(data?.isbooked){
+        let dt = new Date(data?.date)
+        date=dt.getDate()+' '+getMonthFromNo(dt.getMonth())+' '+dt.getFullYear()
+        console.log(date)
+      }
       return <div className={style.Hospital}>
         <div className={style.cardSec}>
-
-          {ImgIcon ? ImgIcon : <Icon Iconname={IconName.Medical.Medical} />}
+          <div className={style.mediIcon}>
+            {ImgIcon ? ImgIcon : <Icon Iconname={IconName.Medical.Medical} />}
+          </div>
           <div className={style.HD}>
             <div className={style.HN}>{data["Hospital Name"]}</div>
             <p className={style.location}>{data['City']},{data['State']}</p>
@@ -89,29 +103,28 @@ function Card({ data, heading, handleClick, cardtype, children, ImgIcon, }) {
               <span className={style.Free}>FREE</span> <span className={style.Money}>₹500</span> Consultation fee at clinic</p>
             <hr style={{ "borderTop": '1px dashed #E8E8F0' }} />
             <span className={style.rating}>
-              <Icon Iconname={IconName.Medical.Like} />{data['Hospital overall rating']}
+              <Icon Iconname={IconName.Medical.Like} />{data['Hospital overall rating'] == 'Not Available' ? 0 : data['Hospital overall rating']}
             </span>
           </div>
 
           {!data?.isbooked && <div className={style.btns}>
             <p className={style.avail}>Available Today</p>
-            <div className={style.bookingBtn}>
-              <Button varient={btnVarient.LIGHTBLUE} btnText={'Book FREE Center Visit'}></Button>
+            <div className={style.bookingBtn} >
+              <Button varient={btnVarient.LIGHTBLUE} btnText={expand ? 'cancel' : 'Book FREE Center Visit'} handleClick={() => setExpand(!expand)}></Button>
             </div>
           </div>}
 
           {data?.isbooked && <div className={style.booked}>
-            <p className={style.time}>{data?.booking?.time}</p>
-            <p className={style.date}>{data?.booking?.date}</p>
+            <p className={style.time}>{data?.time}</p>
+            <p className={style.date}>{date}</p>
           </div>}
 
         </div>
-        <div className={style.bookingSec}>
+        {expand && <div className={style.bookingSec}>
           {/* <div className={style.days}> */}
-            <FullWidthTabs data={data} Component={(ele,idx)=><Slots data={ele} />}></FullWidthTabs>
+          <FullWidthTabs data={data} Component={(ele, idx) => <Slots data={ele} main={data} />}></FullWidthTabs>
           {/* </div> */}
-          
-        </div>
+        </div>}
       </div>
 
     default: return (
@@ -129,27 +142,38 @@ function Card({ data, heading, handleClick, cardtype, children, ImgIcon, }) {
   // </div>
 
 }
-const Slots=(data)=>{
-  return <div className={style.slots}>
-  <div className={style.slot}>
-    <p className={style.SN}>Morning</p>
-    <p className={style.time}>10:30PM</p>
+const Slots = ({ data, main }) => {
+  
+  const [bookingModal, setBookingModal] = useState(false)
+  const [slot,setSlot]=useState('00:00AM')
+  const handleClick =(event)=>{
+    setSlot(event.target.innerHTML)
+    setBookingModal(true)
+    console.log(event.target.innerHTML, data, main, data?.date);
+  }
+  return <div className={style.slots} id={data?.date}>
+    <Modals isOpen={bookingModal} setIsOpen={setBookingModal} data={{medicalCentre:main,bookingDetail:data,slot:slot}} ></Modals>
+    <div className={style.slot}>
+      <p className={style.SN}>Morning</p>
+      <p className={style.time} id={'11:30AM'} onClick={handleClick}>11:30AM</p>
+    </div>
+    <div className={style.slot}>
+      <p className={style.SN}>Afternoon</p>
+      <p className={style.time} onClick={handleClick}>12:00PM</p>
+      <p className={style.time} onClick={handleClick}>12:30PM</p>
+      <p className={style.time} onClick={handleClick}>01:00PM</p>
+      <p className={style.time} onClick={handleClick}>01:30PM</p>
+      <p className={style.time} onClick={handleClick}>02:00PM</p>
+      <p className={style.time} onClick={handleClick}>02:30PM</p>
+    </div>
+    <div className={style.slot} >
+      <p className={style.SN}>Evening</p>
+      <p className={style.time} onClick={handleClick}>06:00PM</p>
+      <p className={style.time} onClick={handleClick}>06:30PM</p>
+      <p className={style.time} onClick={handleClick}>07:00PM</p>
+      <p className={style.time} onClick={handleClick}>07:30PM</p>
+    </div>
   </div>
-  <div className={style.slot}>
-    <p className={style.SN}>Afternoon</p>
-    <p className={style.time}>10:30PM</p>
-    <p className={style.time}>10:30PM</p>
-    <p className={style.time}>10:30PM</p>
-    <p className={style.time}>10:30PM</p>
-    <p className={style.time}>10:30PM</p>
-    <p className={style.time}>10:30PM</p>
-  </div>
-  <div className={style.slot}>
-  <p className={style.SN}>Afternoon</p>
-  <p className={style.time}>10:30PM</p>
-  <p className={style.time}>10:30PM</p>
-  </div>
-</div>
 }
 export const cardType = Object.freeze({
   VerticalBox: "VerticalBox",
