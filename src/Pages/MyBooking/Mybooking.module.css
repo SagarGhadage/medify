@@ -49,7 +49,10 @@
 }
 
 .cards {
+    display: flex;
+    flex-direction: column;
     margin-top: 5%;
+    gap: 20px;
     width: 786px;
     height: auto;
 }
