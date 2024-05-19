@@ -8,41 +8,21 @@ import Icon, { IconName } from '../../Components/Icon/Icons'
 import FAQ from '../../Components/FAQ/FAQ'
 import Button, { btnVarient } from '../../Components/Button/Button'
 import Footer from '../../Components/Footer/Footer'
+import { useOutletContext } from 'react-router-dom'
 
 export default function HomePage({ children }) {
-  let data = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  let specialists = [
-    { id: 1, name: "Dr. Lesley Hull", specialisation: 'Medicine' },
-    { id: 2, name: 'Dr. Ahmad Khan', specialisation: 'Neurologist' },
-    { id: 3, name: "Dr. Heena Sachdeva", specialisation: 'Orthopadics' },
-    { id: 4, name: "Dr. Ankur Sharma", specialisation: 'Medicine' },
-    { id: 5, name: "Dr. Lesley Hull", specialisation: 'Medicine' },
-    { id: 6, name: "Dr. Ahmad Khan", specialisation: 'Orthopadics' },
-    { id: 7, name: "Dr. Lesley Hull", specialisation: 'Medicine' },
-    { id: 8, name: "Dr. Ankur Sharma", specialisation: 'Medicine' },
-    { id: 9, name: "Dr. Lesley Hull", specialisation: 'Orthopadics' },
-  ]
-  let dataFAQ= [
-    {
-      que: 'Why we are different from others?', ans: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.'
-    },
-    {
-      que: 'Why choose our medical for your family?', ans: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-      malesuada lacus ex, sit amet blandit leo lobortis eget.`
-    },
-    {
-      que: 'Trusted & experience senior care & love', ans: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.'
-    }
-    ,
-    {
-      que: 'How to get appointment for emergency cases?', ans: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.'
-    }
-  ]
+  
+
+  const{info}=useOutletContext();
+  // console.clear()
+  console.log(info,'hi')
+
+
   return (
     <div >
       <HeroSession />
       <div className={style.section}>
-        <Section ><Carousal data={data} Component={(data) => <Card cardtype={cardType.Horizontal} ImgIcon={<Icon Iconname={data % 2 !== 0 ? IconName.Group10 : IconName.Group11} />} />} /></Section>
+        <Section ><Carousal data={info?.offers} Component={(data) => <Card cardtype={cardType.Horizontal} ImgIcon={<Icon Iconname={data % 2 !== 0 ? IconName.Group10 : IconName.Group11} />} />} /></Section>
       </div>
       <div className={style.findbyspecialisation}>
         <Section>
@@ -67,7 +47,7 @@ export default function HomePage({ children }) {
         <Section >
           <p className={style.secHeading}>Our Medical Specialist</p>
           <div className={style.specialistsCarousal}>
-            <Carousal data={specialists}
+            <Carousal data={info?.specialists}
               Component={(data) => <Card cardtype={cardType.Profile}
                 ImgIcon={<Icon Iconname={IconName.MedicalSpecialist[`Dr${data?.name?.split('Dr.').join('').split(' ').join('')}`]} />}
                 heading={data?.name} >
@@ -189,7 +169,7 @@ export default function HomePage({ children }) {
           {/* </div> */}
         </Section>
       </div>
-      <FAQ data={dataFAQ}/>
+      <FAQ data={info?.faqs}/>
       <Footer/>
     </div>
   )
