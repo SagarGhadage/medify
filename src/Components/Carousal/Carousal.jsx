@@ -42,11 +42,13 @@ export default function Carousal({ Component, data,pagination=false, }) {
       //   scrollbar={{ draggable: true }}
       //   onSwiper={(swiper) => console.log(swiper)}
       >
+          
         {pagination&&<CarousalLeftNav></CarousalLeftNav>}
-        {data.map((item) =>
-          <SwiperSlide className={styles.SwiperSlide} key={item.id}>{Component(item)}</SwiperSlide>
+        {data.map((item,idx) =>
+          <SwiperSlide className={styles.SwiperSlide} key={item.id?item.id:idx}>{Component(item)}</SwiperSlide>
         )}
         {pagination&&<CarousalRightNav></CarousalRightNav>}
-      </Swiper></div>
+      </Swiper>
+      </div>
   );
 };
