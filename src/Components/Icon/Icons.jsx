@@ -53,7 +53,7 @@ import { ReactComponent as Like } from "../../assets/medical/Vector.svg"
 import ADD from "../../assets/image.svg"
 
 export default function Icon({ Iconname }) {
-    console.log(Iconname)
+    // console.log(Iconname)
     switch (Iconname) {
 
         case 'ADD':

@@ -1,15 +1,8 @@
 import React from 'react'
 import style from "./Button.module.css"
-function Button({ varient, handleClick, btnText, children, type }) {
-  console.log(varient)
+function Button({ varient, handleClick=()=>{}, btnText, children, type }) {
   switch (varient) {
-    // case btnVarient.GREEN:
-    //   return (
-    //     <button className={style.GREEN} onClick={handleClick}>{btnText ? btnText : children ? children : "Button"} </button>
-    //   )
-    // case btnVarient.RED: return (
-    //   <button className={style.RED} onClick={handleClick}>{btnText ? btnText : children ? children : "Button"} </button>
-    // )
+
     case btnVarient.LIGHTBLUE:
       return (
         <button className={style.LIGHTBLUE} onClick={handleClick}>{children} {btnText?btnText:""} </button>
