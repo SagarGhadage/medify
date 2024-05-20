@@ -107,7 +107,7 @@ export const dataFAQ = [
     let current = new Date()
     let slotsList = []
     let dt = current.getFullYear() + '-' + getMonthFromNo(current.getMonth()) + '-' + current.getDate()
-    let time = current.getHours
+    // let time = current.getHours
     
     let slot = {
       date: dt, day: "Today", slots: getSlot(current) 
