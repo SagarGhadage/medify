@@ -155,23 +155,21 @@ const Slots = ({ data, main }) => {
     <Modals isOpen={bookingModal} setIsOpen={setBookingModal} data={{medicalCentre:main,bookingDetail:data,slot:slot}} ></Modals>
     <div className={style.slot}>
       <p className={style.SN}>Morning</p>
-      <p className={style.time} id={'11:30AM'} onClick={handleClick}>11:30AM</p>
+      {data.slots?.Morning?.map((ele)=>
+      <p className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
+      )}
     </div>
     <div className={style.slot}>
       <p className={style.SN}>Afternoon</p>
-      <p className={style.time} onClick={handleClick}>12:00PM</p>
-      <p className={style.time} onClick={handleClick}>12:30PM</p>
-      <p className={style.time} onClick={handleClick}>01:00PM</p>
-      <p className={style.time} onClick={handleClick}>01:30PM</p>
-      <p className={style.time} onClick={handleClick}>02:00PM</p>
-      <p className={style.time} onClick={handleClick}>02:30PM</p>
+      {data.slots?.Afternoon?.map((ele)=>
+      <p className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
+      )}
     </div>
     <div className={style.slot} >
       <p className={style.SN}>Evening</p>
-      <p className={style.time} onClick={handleClick}>06:00PM</p>
-      <p className={style.time} onClick={handleClick}>06:30PM</p>
-      <p className={style.time} onClick={handleClick}>07:00PM</p>
-      <p className={style.time} onClick={handleClick}>07:30PM</p>
+      {data.slots?.Evening?.map((ele)=>
+      <p className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
+      )}
     </div>
   </div>
 }

@@ -120,7 +120,8 @@
     justify-content: space-evenly;
     align-items: center;
     background-color: #FFFFFF;
-    width: 252px;
+    width: 45%;
+    min-width: 200px;
     height: 304px;
     padding: 40px 0px 40px 0px;
     box-shadow: 0px 15px 45px -5px #00000012;
@@ -319,4 +320,10 @@
 
 .SN {
     min-width: 84px;
+}
+
+@media only screen and (max-width: 992px){
+    .PerformanceCard{
+        width: 80%;
+    }
 }
