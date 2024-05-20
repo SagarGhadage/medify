@@ -60,7 +60,7 @@
 .mobile {
     position: relative;
     top: 41px;
-    left: 325px;
+    left: 35%;
     width: 302px;
     height: 427px;
     border-radius: 10px;
@@ -72,5 +72,25 @@
     width: 302px;
     top: 111px;
     height: 503px;
-    left: 125px;
+    left: 10%;
+}
+@media only screen and (max-width: 992px){
+    .hero_inner{
+        flex-direction: column;
+        height: auto;
+    }
+    .mobileImgs{
+        width: 80%;
+        height: 80%;
+        overflow: hidden;
+    }
+    .footer{
+        height: auto;
+    }
+    .downloadApp{
+        height: 80%;
+        width: 90%;
+        justify-content: center;
+        margin: 6%;
+    }
 }

@@ -101,7 +101,7 @@
 }
 
 .containerFlex {
-    display: flex;
+    display: flex;gap: 3%;
     justify-content: space-evenly;
 }
 
@@ -114,3 +114,43 @@
     /* opacity: 0px; */
 }
 
+@media only screen and (max-width: 992px) {
+    .containerFlex {
+        flex-wrap: wrap;
+
+    }
+
+    .formContainer {
+        height: fit-content;
+        top: 95%;
+    }
+
+    .hero_inner {
+        height: fit-content;
+        flex-direction: column;
+    }
+
+    .heroTxtGP {
+        height: auto;
+        width: 80%;
+        margin: auto;
+    }
+
+    .heroSession {
+        height: fit-content;
+        height: calc(100%+600px);
+        box-sizing: content-box;
+    }
+
+    .container {
+        height: fit-content;
+        height: 1230px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .formContainer {
+        height: fit-content;
+        top: 80%;
+    }
+}

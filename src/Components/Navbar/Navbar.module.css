@@ -34,6 +34,8 @@
 }
 
 .navlist .span {
+    text-decoration: none;
+    color: black;
     cursor: pointer;
 }
 

@@ -12,15 +12,6 @@ export default function MyBooking() {
   const [inputText, setInputText] = useState('');
   const [filtered, setFiltered] = useState([]);
 
-  const filteredList = useMemo(() => {
-
-    return bookings.filter((item) =>
-      item["Hospital Name"]
-        .toLowerCase()
-        .includes(inputText.trim().toLowerCase())
-    );
-  }, [inputText,]);
-
   useEffect(() => {
     const localbookings = localStorage.getItem("myBookings") || "[]";
     setBookings(JSON.parse(localbookings));
@@ -52,28 +43,26 @@ export default function MyBooking() {
           <div className={style.careH}>
             <p className={style.careHM}>No Bookings Found!</p>
           </div>}
+
         {
           filtered?.map((ms, idx) =>
             <Card
               cardtype={cardType.Hospital}
-              key={ms['Provider ID']}
+              key={idx}
               data={ms}
               ImgIcon={<Icon Iconname={IconName.Medical.Medical}></Icon>}>
             </Card>
           )}
 
-        {/* <Card
-          cardtype={cardType.Hospital}
-          // bookingData={slots} 
-          data={info[0]}
-          ImgIcon={<Icon Iconname={IconName.Medical.Medical}></Icon>}>
-        </Card> */}
       </div>
+
       <div className={style.add}>
         <Icon Iconname={'ADD'}
         />
       </div>
+
     </div>
+
     <Footer />
   </div>
 }
