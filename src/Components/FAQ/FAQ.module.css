@@ -155,5 +155,12 @@
 @media only screen and (max-width: 992px){
     .flexContainer{
         flex-direction: column;
+        overflow: hidden;
+    }
+    .flexFAQContainer{
+        width: 80%;
+    }
+    .imgContainer{
+        overflow: hidden;
     }
 }

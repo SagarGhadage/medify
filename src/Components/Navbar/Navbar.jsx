@@ -12,7 +12,7 @@ export default function Navbar({ children, transperent = 0 }) {
     const navigate = useNavigate()
   const [expand, setExpand] = useState(false)
     const size = useWindowSize()
-    console.log(size)
+    // console.log(size)
     return (
         <div className={transperent ? style.transperent : style.navbar}>
             <Logo />

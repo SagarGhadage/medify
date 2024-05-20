@@ -9,9 +9,9 @@
     /* border: 0.5px solid #FFFFFF */
 }
 .sideManu{
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 10px;
+    top: 0px;
     z-index: 3;
     width: 40vw;
     height: 100lvh;

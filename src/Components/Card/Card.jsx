@@ -82,12 +82,12 @@ function Card({ data, heading, handleClick, cardtype, children, ImgIcon, }) {
     )
 
     case cardType.Hospital:
-      console.log(data)
+      // console.log(data)
       let date=''
       if(data?.isbooked){
         let dt = new Date(data?.date)
         date=dt.getDate()+' '+getMonthFromNo(dt.getMonth())+' '+dt.getFullYear()
-        console.log(date)
+        // console.log(date)
       }
       return <div className={style.Hospital}>
         <div className={style.cardSec}>
@@ -156,19 +156,19 @@ const Slots = ({ data, main }) => {
     <div className={style.slot}>
       <p className={style.SN}>Morning</p>
       {data.slots?.Morning?.map((ele)=>
-      <p className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
+      <p key={ele} className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
       )}
     </div>
     <div className={style.slot}>
       <p className={style.SN}>Afternoon</p>
       {data.slots?.Afternoon?.map((ele)=>
-      <p className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
+      <p key={ele} className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
       )}
     </div>
     <div className={style.slot} >
       <p className={style.SN}>Evening</p>
       {data.slots?.Evening?.map((ele)=>
-      <p className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
+      <p key={ele} className={style.time} id={'11:30AM'} onClick={handleClick}>{ele}</p>
       )}
     </div>
   </div>

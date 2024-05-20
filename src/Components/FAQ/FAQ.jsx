@@ -10,7 +10,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 export default function FAQ({data }) {
   const [expanded, setExpanded] = React.useState("");
-  console.log(expanded,data)
+  // console.log(expanded,data)
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };

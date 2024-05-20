@@ -11,8 +11,8 @@ import { useOutletContext } from 'react-router-dom'
 export default function SearchResult() {
 
   const { info } = useOutletContext();
-  console.clear()
-  console.log(info, 're')
+  // console.clear()
+  // console.log(info, 're')
   const [mStores, setMStore] = useState([])
   const mapMC = (data, slots) => {
     return data?.map((mc) => {
@@ -22,7 +22,7 @@ export default function SearchResult() {
   }
   useEffect(() => {
     setMStore(mapMC(info.medicalCenters,info.slots))
-    console.log(info?.medicalCenters, mStores)
+    // console.log(info?.medicalCenters, mStores)
   }, [info.medicalCenters])
 
   return <div className={style.SearchResult}>

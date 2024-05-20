@@ -8,9 +8,11 @@
     color: #FFFFFF;
     line-height: 45.96px;
 }
-.MyBooking{
+
+.MyBooking {
     background: linear-gradient(81deg, #E7F0FF 9.01%, rgba(178, 182, 189, 0.47) 89.11%);
 }
+
 .BlueStrip {
     background: linear-gradient(91.75deg, #2AA7FF 1.4%, #0C8CE6 100.57%);
     width: 100%;
@@ -86,4 +88,92 @@
     width: 363px;
     height: 268px;
     border-radius: 15px;
+}
+
+@media only screen and (max-width: 992px) {
+    .resultSec {
+        flex-direction: column-reverse;
+        height: auto;
+        /* margin-top: 15%; */
+    }
+
+    .careH {
+        top: 80%;
+        position: relative;
+        width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+
+    .careHM,
+    .careHS {
+        display: inline-block;
+    }
+
+    .add {
+        margin: auto;
+        margin-bottom: 9%;
+    }
+
+    .cards {
+        width: 80%;
+        margin: auto;
+    }
+
+    .Form {
+        width: 40%;
+        box-shadow: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cards {
+        width: auto;
+    }
+    .Form {
+        width: 40%;
+        box-shadow: none;
+    }
+}
+
+@media only screen and (max-width: 512px) {
+    .resultSec {
+        flex-direction: column-reverse;
+        height: auto;
+        margin-top: 15%;
+    }
+
+    .cards {
+        width: auto;
+    }
+
+    .careH {
+        top: 80%;
+        width: 100%;
+    }
+
+    .careHM,
+    .careHS {
+        display: inline;
+    }
+    .Form {
+        width: 45%;
+        left: 10%;
+        box-shadow: none;
+    }
+}
+@media only screen and (max-width:1149px) {
+    .resultSec{
+        flex-direction: column-reverse;
+        height: auto;
+        /* margin-top: 15%; */
+    }
+    .add{
+        margin: auto;
+    }
+    .cards{
+        margin: auto;
+        width: 80%;
+        margin-top: 6%;
+    }
 }

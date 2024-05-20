@@ -84,3 +84,18 @@ h6 {
 #__next {
   isolation: isolate;
 }
+.swiper-pagination-bullet {
+  cursor: pointer !important;
+  border-radius: 50% !important;
+  height: 9px !important;
+  width: 9px !important;
+}
+.swiper-pagination{
+  position: relative;
+}
+.swiper-pagination-bullet-active{
+  outline : 1px solid #2AA7FF;
+  background: #2AA7FF;
+  outline-offset: 6px;
+}
+

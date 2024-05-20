@@ -139,7 +139,7 @@ export let slots = getSlots()
   if (date.getDate() > current.getDate()) {
     return {
       Morning: ['10:30AM', '11:00AM', '11:3oAM'],
-      Afternoon: ['12:00PM', '12:30PM', '01:30PM', '02:0 PM', '02:30PM', '02:30PM',],
+      Afternoon: ['12:00PM', '12:30PM', '01:30PM', '02:0 PM', '02:30PM', '03:30PM',],
       Evening: ['5:00PM', '5:30PM', '6:30PM', '07:30PM',]
     }
   }

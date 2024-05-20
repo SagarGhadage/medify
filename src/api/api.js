@@ -10,6 +10,7 @@ export const fetchState= async ()=>{
     }
 }
 export const fetchCities= async (states)=>{
+    if(states.length==0)return;
     try{
         const response=await axios.get(`${BACKEND_ENDPOINT}/cities/${states}`)
         return response.data;
@@ -18,6 +19,8 @@ export const fetchCities= async (states)=>{
     }
 }
 export const fetchMedicalCenters= async (state,city)=>{
+    if(!state || !city)
+        return
     try{
         const response=await axios.get(`${BACKEND_ENDPOINT}/data?state=${state}&city=${city}`)
         return response.data;

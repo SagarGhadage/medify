@@ -12,7 +12,7 @@ import CarousalLeftNav from './CarousalLeftNav/CarousalLeftNav';
 import CarousalRightNav from './CarousalRightNav/CarousalRightNav';
 
 export default function Carousal({ Component, data,pagination=false, }) {
-  console.log(data)
+  // console.log(data)
   return (
     <div className={styles.carousalC}>
       <Swiper

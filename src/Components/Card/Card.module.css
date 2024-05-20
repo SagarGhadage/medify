@@ -302,9 +302,11 @@
     flex-direction: column;
     justify-content: center;
 }
-.slots:last-child{
+
+.slots:last-child {
     border-bottom: none;
 }
+
 .slot {
     width: 100%;
     height: 30%;
@@ -322,8 +324,65 @@
     min-width: 84px;
 }
 
-@media only screen and (max-width: 992px){
-    .PerformanceCard{
+@media only screen and (max-width: 992px) {
+    .PerformanceCard {
         width: 80%;
+    }
+
+    .Hospital {
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 512px) {
+    .cardSec {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+    }
+
+    .Hospital {
+        width: 80%;
+        margin: auto;
+    }
+
+    .HD {
+        width: 100%;
+    }
+
+    .btns {
+        height: auto;
+    }
+
+    .bookingSec {
+        width: auto;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cardSec {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        flex-direction: column;
+    }
+
+    .Hospital {
+        width: 80%;
+        margin: auto;
+    }
+
+    .HD {
+        width: 100%;
+    }
+
+    .btns {
+        height: auto;
+    }
+
+    .bookingSec {
+        width: auto;
     }
 }

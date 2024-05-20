@@ -121,6 +121,7 @@
     .hero_inner{
         flex-direction: column;
         height: 1111px;
+        overflow: hidden;
     }
     .PCC{
         width: 80%;
@@ -130,5 +131,23 @@
         height: 45%;
         width: 90%;
         margin-top: 3%;
+    }
+}
+
+@media only screen and (max-width: 512px)
+{
+    .PC1{
+        position: static;
+    }
+    .PC{
+        position: static;
+    }
+    .PCC{
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+    }.PC3{
+        top: 40%;
+        left: 20%;
     }
 }

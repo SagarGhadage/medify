@@ -101,7 +101,8 @@
 }
 
 .containerFlex {
-    display: flex;gap: 3%;
+    display: flex;
+    gap: 3%;
     justify-content: space-evenly;
 }
 
@@ -144,13 +145,34 @@
 
     .container {
         height: fit-content;
-        height: 1230px;
+        height: 1290px;
     }
 }
 
 @media only screen and (max-width: 768px) {
     .formContainer {
         height: fit-content;
-        top: 80%;
+        top: 100%;
+    }
+    .container{
+        height: 1550px;
+    }
+}
+
+@media only screen and (max-width: 512px) {
+    .formContainer {
+        top:-100px;
+        height: fit-content;
+        position: relative;
+        margin: auto;
+    }
+
+    .heroSession {
+        display: block;
+    }
+
+    .container {
+        height: auto;
+        margin: auto;
     }
 }

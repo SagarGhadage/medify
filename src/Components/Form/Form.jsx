@@ -112,7 +112,7 @@ function Form({ children, type, backGround, bdata, setIsOpen, inputText,setInput
         return <div className="getAppF">
           <p className={style.hero_txt3}>Get the link to download the app</p>
           <form className={style.GetApp} onSubmit={(event) => { event.preventDefault() }}>
-            <select name="country" className={style.country} id="country" onChange={handleInputChange}  >
+            <div style={{display:'flex',width:"100%"}}><select name="country" className={style.country} id="country" onChange={handleInputChange}  >
               <option value="+91">+91</option>
             </select>
             <input type='number' className={style.phone}
@@ -121,7 +121,7 @@ function Form({ children, type, backGround, bdata, setIsOpen, inputText,setInput
               value={formData?.phone}
               onChange={handleInputChange}
               required
-            />
+            /> </div>
             <div className={style.btns}>
               <Button varient={btnVarient.LIGHTBLUE} type={"submit"}>Send MSG
               </Button>
@@ -139,7 +139,7 @@ function Form({ children, type, backGround, bdata, setIsOpen, inputText,setInput
       }
     case Formtype.booking:
       {
-        console.log(formData, bdata?.medicalCentre, bdata)
+        // console.log(formData, bdata?.medicalCentre, bdata)
         return <div className="getAppF">
           <p className={style.hero_txt3}>Book Appointment</p>
           <form className={style.GetApp} onSubmit={(event) => {

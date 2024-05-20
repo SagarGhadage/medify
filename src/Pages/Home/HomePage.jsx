@@ -17,7 +17,7 @@ export default function HomePage({ children }) {
 
   const{info}=useOutletContext();
   // console.clear()
-  console.log(info,'hi')
+  // console.log(info,'hi')
 
 
   return (
@@ -42,7 +42,7 @@ export default function HomePage({ children }) {
             <Card className={style.card} cardtype={cardType.VerticalBoxBig} ImgIcon={<Icon Iconname={IconName.Specilazation.XRay} />} heading={'X-ray'} />
           </div>
           <div className={style.btn}>
-            <Button varient={btnVarient.LIGHTBLUE} handleClick={''} btnText={'View All'}></Button>
+            <Button varient={btnVarient.LIGHTBLUE}  btnText={'View All'}></Button>
           </div>
         </Section>
         {children}

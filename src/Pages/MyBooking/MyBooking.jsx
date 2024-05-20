@@ -28,7 +28,7 @@ export default function MyBooking() {
   }, [inputText, bookings]);
 
 
-  console.log(info)
+  // console.log(info)
   return <div className={style.MyBooking}>
     <Navbar />
     <div className={style.BlueStrip}>
