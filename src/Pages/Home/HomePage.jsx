@@ -9,6 +9,8 @@ import FAQ from '../../Components/FAQ/FAQ'
 import Button, { btnVarient } from '../../Components/Button/Button'
 import Footer from '../../Components/Footer/Footer'
 import { useOutletContext } from 'react-router-dom'
+import OurFamily from '../../Components/Section/OurFamily/OurFamily'
+import PatientCaring from '../../Components/Section/PatientCaring/PatientCaring'
 
 export default function HomePage({ children }) {
   
@@ -21,9 +23,11 @@ export default function HomePage({ children }) {
   return (
     <div >
       <HeroSession />
+
       <div className={style.section}>
         <Section ><Carousal data={info?.offers} Component={(data) => <Card cardtype={cardType.Horizontal} ImgIcon={<Icon Iconname={data % 2 !== 0 ? IconName.Group10 : IconName.Group11} />} />} /></Section>
       </div>
+
       <div className={style.findbyspecialisation}>
         <Section>
           <p className={style.secHeading}>Find by specialisation</p>
@@ -55,37 +59,7 @@ export default function HomePage({ children }) {
               } /></div></Section>
       </div>
       <div className={style.PatientCaring}>
-        <Section>
-          <div className={style.hero_inner}>
-            <div className={style.PCC}>
-              <div className={style.PC}>
-                <Icon Iconname={IconName.PC} className={style.PCIcon} /></div>
-              <div className={style.PC1}>
-                <Icon Iconname={IconName.PC1} className={style.PCIcon} /></div>
-              <div className={style.PC3}>
-                <p className={style.hero_txt3}><Icon Iconname={IconName.Call}></Icon>Free Consultation</p>
-                <p className={style.hero_txt2}> &nbsp; Consultation with the best</p>
-              </div>
-            </div>
-            <div className={style.heroTxtGP}>
-              <p className={style.hero_txt1}>
-                HELPING PATIENTS FROM AROUND THE GLOBE!!
-              </p><p>
-                <span className={style.span1}>
-                  Patient
-                </span>
-                <span className={style.span2}> Caring </span>
-              </p>
-              <p className={style.hero_txt2}>
-                Our goal is to deliver quality of care in a courteous, respectful, and compassionate manner. We hope you will allow us to care for you and strive to be the first and best choice for healthcare. </p>
-              <div className={style.pc}>
-                <p className={style.hero_txt3}><Icon Iconname={IconName.StarIcon}></Icon>Stay Updated About Your Health</p>
-                <p className={style.hero_txt3}><Icon Iconname={IconName.StarIcon}></Icon>Check Your Results Online</p>
-                <p className={style.hero_txt3}><Icon Iconname={IconName.StarIcon}></Icon>Manage Your Appointments</p>
-              </div>
-            </div>
-          </div>
-        </Section>
+       <PatientCaring/>
       </div>
 
       <div className={style.LatestNews}>
@@ -112,63 +86,11 @@ export default function HomePage({ children }) {
         </Section>
         {children}
       </div>
+
       <div className={style.OurFamilies}>
-        <Section>
-          {/* <div className={style.hero_inner}> */}
-          <div className={style.hero_inner}>
-            <div className={style.heroTxtGP}>
-              <p className={style.hero_txt1}>
-                CARING FOR THE HEALTH OF YOU AND YOUR FAMILY.
-              </p>
-              <p className={style.span3}>
-                <span className={style.span3}>
-                  Our Families
-                </span>
-              </p>
-              <p className={style.hero_txt2} style={{lineHeight:'40.8px'}}>
-                We will work with you to develop individualised care plans, including management of chronic diseases. If we cannot assist, we can provide referrals or advice about the type of practitioner you require. We treat all enquiries sensitively and in the strictest confidence.</p>
-            </div>
-            <div className={style.PCC1}>
-              <div className={style.PC4}>
-                <Card cardtype={cardType.PerformanceCard} ImgIcon={
-                  <Icon Iconname={IconName.performanceCard.Heart} className={style.PCIcon} />} >
-                  <span className={style.span3}>
-                    5000+
-                  </span>
-                  <p className={style.hero_txt2}>
-                    Happy Patients</p>
-                </Card>
-                <Card cardtype={cardType.PerformanceCard} ImgIcon={
-                  <Icon Iconname={IconName.performanceCard.DrugstoreP} className={style.PCIcon} />} >
-                  <span className={style.span3}>
-                    1000+
-                  </span>
-                  <p className={style.hero_txt2}>
-                  Laboratories</p>
-                </Card>
-              </div>
-              <div className={style.PC5}>
-                <Card cardtype={cardType.PerformanceCard} ImgIcon={
-                  <Icon Iconname={IconName.performanceCard.HospitalP} className={style.PCIcon} />} >
-                  <span className={style.span3}>
-                    200+
-                  </span>
-                  <p className={style.hero_txt2}>
-                  Hospitals</p>
-                </Card>
-                <Card cardtype={cardType.PerformanceCard} ImgIcon={
-                  <Icon Iconname={IconName.performanceCard.Doctor} className={style.PCIcon} />} >
-                  <span className={style.span3}>
-                    700+
-                  </span>
-                  <p className={style.hero_txt2}>
-                    Expert Doctors</p>
-                </Card></div>
-            </div>
-          </div>
-          {/* </div> */}
-        </Section>
+        <OurFamily/>
       </div>
+      
       <FAQ data={info?.faqs}/>
       <Footer/>
     </div>
