@@ -101,7 +101,7 @@
     }
     .cards{
         width: 80%;
-        margin: auto;
+        margin:100%
     }
     .Form{
         /* width: auto; */
@@ -110,7 +110,7 @@
 }
 @media only screen and (max-width: 768px){
     .cards{
-        width: auto;
+        width: 100%
     }
 }
 @media only screen and (max-width: 512px) {
@@ -120,7 +120,7 @@
         margin-top: 15%;
     }
     .cards{
-        width: auto;
+        width: 100%;
     }
     .careH {
         top: 80%;
